@@ -5,18 +5,6 @@ import store from './store'
 
 import './assets/css/global.css'
 
-//iView-UI
-import iView from 'iview'
-Vue.use(iView)
-
-//Mint-UI
-import { Toast, Indicator } from 'mint-ui'
-import 'mint-ui/lib/style.css'
-Vue.prototype.$toast = Toast
-Vue.prototype.$indicator = Indicator
-import mint from 'mint-ui'
-Vue.use(mint)
-
 //Muse-UI
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'

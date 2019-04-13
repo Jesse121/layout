@@ -1,7 +1,5 @@
-import Common from './Common'
 import MuseUI from './Muse-UI'
-import MintUI from './Mint-UI'
-import iViewUI from './iView-UI'
+import GjUI from './Gj-UI'
 
 var getTemplate = function(info, _attr = {}, _slots = {}) {
     let component
@@ -9,14 +7,8 @@ var getTemplate = function(info, _attr = {}, _slots = {}) {
         case 'Muse-UI':
             component = MuseUI[info.name](_attr, _slots, info)
             break
-        case 'Mint-UI':
-            component = MintUI[info.name](_attr, _slots, info)
-            break
-        case 'iView-UI':
-            component = iViewUI[info.name](_attr, _slots, info)
-            break
-        case 'Common':
-            component = Common[info.name](_attr, _slots, info)
+        case 'Gj-UI':
+            component = GjUI[info.name](_attr, _slots, info)
             break
     }
 

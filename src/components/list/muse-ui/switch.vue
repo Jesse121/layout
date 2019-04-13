@@ -3,6 +3,6 @@
 </template>
 <script>
 export default {
-    name: 'switch'
+    name: 'switcher'
 }
 </script>

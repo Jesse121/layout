@@ -4,13 +4,9 @@
             <mu-select-field :value="activeUI" @change="handleTabChange" autoWidth>
                 <mu-menu-item title="Muse-UI" value="Muse-UI">
                 </mu-menu-item>
-                <mu-menu-item title="Mint-UI" value="Mint-UI">
+                <mu-menu-item title="Gj-UI" value="Gj-UI">
                 </mu-menu-item>
-                <mu-menu-item title="iView-UI" value="iView-UI">
-                </mu-menu-item>
-                <mu-menu-item title="Element-UI" value="Element-UI">
-                </mu-menu-item>
-                <mu-menu-item title="通用" value="Common">
+                <mu-menu-item title="Common" value="Common">
                 </mu-menu-item>
             </mu-select-field>
             <mu-sub-header style="white-space:nowrap;">- 组件</mu-sub-header>
@@ -115,113 +111,18 @@
                 <li draggable="true" @dragstart="dragStart" data-name="Card">
                     <card />
                 </li>
-                <!--                 
+                <!--
                 <li draggable="true" @dragstart="dragStart" data-name="Back Top">
                     <backTop/>
-                </li> 
+                </li>
                 -->
             </ul>
         </div>
-        <div v-if="activeUI === 'Mint-UI'">
+        <div v-if="activeUI === 'Gj-UI'">
             <ul class="components-list">
-                <li draggable="true" @dragstart="dragStart" data-name="Header">
-                    <mt-header fixed title="Header"></mt-header>
+                <li draggable="true" @dragstart="dragStart" data-name="bgLayout">
+                    <bg-layout />背景图
                 </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Button">
-                    <mt-button type="default">Button</mt-button>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Swipe">
-                    <mint-swipe />
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Range">
-                    <mt-range />
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Progress">
-                    <mint-progress />
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Cell">
-                    <mt-cell title="Cell" value="..."></mt-cell>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Switch">
-                    <mt-switch>Switch</mt-switch>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Field">
-                    <mt-field label="Field" placeholder="placeholder"></mt-field>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Badge">
-                    <mt-badge type="primary">Badge</mt-badge>
-                </li>
-            </ul>
-        </div>
-        <div v-if="activeUI === 'iView-UI'">
-            <ul class="components-list iview-ui">
-                <li draggable="true" @dragstart="dragStart" data-name="Row">
-                    <iview-row />
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Button">
-                    <Button size="large">Button</Button>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="ButtonGroup">
-                    <iview-button-group />
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Icon">
-                    <Icon type="happy-outline" :size="28" /> icon
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Input">
-                        <Input placeholder="Input"></Input>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Radio">
-                    <Radio>Radio</Radio>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="RadioGroup">
-                    <iview-radio-group />
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Checkbox">
-                    <Checkbox>Checkbox</Checkbox>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="iSwitch">
-                    <i-switch></i-switch>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Select">
-                    <iview-select />
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Slider">
-                    Slider
-                    <Slider :value="50" style="width:75%;display:inline-block;vertical-align:middle;" />
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="DatePicker">
-                    <Date-picker size="large" type="date" placeholder="Date Picker"></Date-picker>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="TimePicker">
-                    <Time-picker size="large" type="time" placeholder="Time Picker"></Time-picker>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="InputNumber">
-                   InputNumber <Input-number :max="10" :min="1" />
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Rate">
-                    <Rate :value="5"/>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Form">
-                    <iview-form/>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="ColorPicker">
-                    <ColorPicker value="#19be6b"/>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Alert">
-                    <Alert show-icon>Alert</Alert>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Card">
-                    <Card />
-                </li>
-            </ul>
-        </div>
-        <div v-if="activeUI === 'Element-UI'">
-            <ul class="components-list">
-                <!--                 
-                <li draggable="true" @dragstart="dragStart" data-name="Header">
-                    <mt-header fixed title="Header"></mt-header>
-                </li> 
-                -->
             </ul>
         </div>
         <div v-if="activeUI==='Common'">
@@ -247,8 +148,7 @@
 </template>
 <script>
 import museUiList from './list/muse-ui'
-import mintUiList from './list/mint-ui'
-import iViewUiList from './list/iview-ui'
+import gjList from './list/gj-ui'
 export default {
     name: 'components',
     data() {
@@ -296,8 +196,7 @@ export default {
     },
     components: {
         ...museUiList,
-        ...mintUiList,
-        ...iViewUiList
+        ...gjList
     }
 }
 </script>

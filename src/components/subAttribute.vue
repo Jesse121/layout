@@ -7,9 +7,11 @@
                     value:'按钮'
                 }
             }-->
-        <div v-if="attr" v-for="(v,k,i) in attr">
+        <div v-if="attr" v-for="(v,k,i) in attr" :key="i">
             <!-- 文本型（text）属性 -->
             <mu-text-field v-if="v.type==='text'" :label="k" :name="k" v-model="v.value" @input.native="updateAttribute" type="text" fullWidth/>
+            <!-- Array型属性 -->
+            <mu-text-field v-if="v.type==='Array'" :label="k" :name="k" v-model="v.value" @input.native="updateAttribute" type="text" fullWidth/>
             <!-- 数字型（number）属性 -->
             <mu-text-field v-if="v.type==='number'" :label="k" :name="k" v-model="v.value" @input.native="updateAttribute" type="number" fullWidth/>
             <!-- 滑块型 -->

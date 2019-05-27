@@ -1,7 +1,6 @@
 import Common from './Common'
 import MuseUI from './Muse-UI'
-import MintUI from './Mint-UI'
-import iViewUI from './iView-UI'
+import GjUI from './Gj-UI'
 
 var getTemplate = function(info, _attr = {}, _slots = {}) {
     let component
@@ -9,11 +8,8 @@ var getTemplate = function(info, _attr = {}, _slots = {}) {
         case 'Muse-UI':
             component = MuseUI[info.name](_attr, _slots, info)
             break
-        case 'Mint-UI':
-            component = MintUI[info.name](_attr, _slots, info)
-            break
-        case 'iView-UI':
-            component = iViewUI[info.name](_attr, _slots, info)
+        case 'Gj-UI':
+            component = GjUI[info.name](_attr, _slots, info)
             break
         case 'Common':
             component = Common[info.name](_attr, _slots, info)
@@ -30,7 +26,7 @@ var getTemplate = function(info, _attr = {}, _slots = {}) {
     if (!component.attributes.class) {
         component.attributes.class = {
             type: 'text',
-                value: ''
+            value: ''
         }
     }
 
@@ -71,7 +67,8 @@ var getStringTypeAttr = function(attributes) {
     let stringAttr = ''
     Object.keys(attributes).forEach(key => {
         let attrKey
-        let arr = ['text', 'selection', 'icon','ionicon', 'color'] //这些类型都不用加bind
+        let arr = ['text', 'class','selection', 'icon','ionicon', 'color'] //这些类型都不用加bind
+        if(attributes[key].type === 'Array')return false
         if (arr.includes(attributes[key].type) || attributes[key].notBind) {
             attrKey = key
         } else {
@@ -82,4 +79,16 @@ var getStringTypeAttr = function(attributes) {
     })
     return stringAttr
 }
-export { getSlotContent, getTemplate, getStringTypeAttr }
+
+var getArrayTypeAttr = function(attributes) {
+
+  let arrayAttr
+  Object.keys(attributes).forEach(key => {
+    if(attributes[key].type === 'Array'){
+      arrayAttr = attributes[key].value
+    }
+  })
+  return arrayAttr
+}
+
+export { getSlotContent, getTemplate, getStringTypeAttr,getArrayTypeAttr }

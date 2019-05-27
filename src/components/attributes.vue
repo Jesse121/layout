@@ -25,6 +25,11 @@ export default {
     },
     methods: {
         updateAttribute(attr) { //属性值输入事件
+            Object.keys(attr).map(item=>{
+              if(attr[item].type === 'Array'){
+                attr[item].value = JSON.parse(attr[item].value)
+              }
+            })
             let components = JSON.parse(JSON.stringify(this.$store.state.components))
             let index = components.findIndex(component => component.info.id === this.current.info.id)
             let info = this.current.info

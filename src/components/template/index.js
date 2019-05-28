@@ -1,4 +1,3 @@
-import Common from './Common'
 import MuseUI from './Muse-UI'
 import GjUI from './Gj-UI'
 
@@ -10,9 +9,6 @@ var getTemplate = function(info, _attr = {}, _slots = {}) {
             break
         case 'Gj-UI':
             component = GjUI[info.name](_attr, _slots, info)
-            break
-        case 'Common':
-            component = Common[info.name](_attr, _slots, info)
             break
     }
 

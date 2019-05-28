@@ -150,86 +150,86 @@
 import museUiList from './list/muse-ui'
 import gjList from './list/gj-ui'
 export default {
-    name: 'components',
-    data() {
-        return {}
+  name: "components",
+  data() {
+    return {};
+  },
+  mounted() {},
+  methods: {
+    handleTabChange(val) {
+      this.activeUI = val;
     },
-    mounted() {
-
+    getComponent(e) {
+      if (!e) return;
+      if (e.localName !== "li") return this.getComponent(e.parentElement);
+      else return e;
     },
-    methods: {
-        handleTabChange(val) {
-            this.activeUI = val
-        },
-        getComponent(e) {
-            if (!e)
-                return
-            if (e.localName !== 'li')
-                return this.getComponent(e.parentElement)
-            else
-                return e
-        },
-        removeDom(e) {
-            if (e && e.parentElement)
-                e.parentElement.removeChild(e)
-        },
-        dragStart(e) {
-            let componentName = e.target.getAttribute('data-name')
-            let info = {
-                name: componentName,
-                ui: this.activeUI
-            }
-            e.dataTransfer.setData('info', JSON.stringify(info))
-        }
+    removeDom(e) {
+      if (e && e.parentElement) e.parentElement.removeChild(e);
     },
-    computed: {
-        activeUI: {
-            get() {
-                return this.$store.state.activeUI
-            },
-            set(val) {
-                this.$store.commit('setState', {
-                    activeUI: val
-                })
-            }
-        }
-    },
+<<<<<<< HEAD
     components: {
         ...museUiList,
         ...gjList
+=======
+    dragStart(e) {
+      let componentName = e.target.getAttribute("data-name");
+      let info = {
+        name: componentName,
+        ui: this.activeUI
+      };
+      e.dataTransfer.setData("info", JSON.stringify(info));
+>>>>>>> a9dd6279b8cc027e48166388f441f716f3d4cc3c
     }
-}
+  },
+  computed: {
+    activeUI: {
+      get() {
+        return this.$store.state.activeUI;
+      },
+      set(val) {
+        this.$store.commit("setState", {
+          activeUI: val
+        });
+      }
+    }
+  },
+  components: {
+    ...museUiList,
+    ...gjUiList
+  }
+};
 </script>
 <style lang="less" scoped>
 .components-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .components-list * {
-    cursor: move!important;
+  cursor: move !important;
 }
 
-.components-list>li {
-    min-height: 36px;
-    font-size: 18px;
-    -webkit-user-select: none;
-    transform: scale(0.7)translateX(-15%);
-    padding-bottom: 10px;
-    transition: transform .2s;
-    &:hover {
-        transform: scale(1)translateX(5%);
-    }
-    i {
-        vertical-align: middle;
-    }
+.components-list > li {
+  min-height: 36px;
+  font-size: 18px;
+  -webkit-user-select: none;
+  transform: scale(0.7) translateX(-15%);
+  padding-bottom: 10px;
+  transition: transform 0.2s;
+  &:hover {
+    transform: scale(1) translateX(5%);
+  }
+  i {
+    vertical-align: middle;
+  }
 }
 
-.components-list.iview-ui >li {
-    transform: scale(0.8)translateX(-5%);
-    &:hover {
-        transform: scale(1.1)translateX(10%);
-    }
+.components-list.iview-ui > li {
+  transform: scale(0.8) translateX(-5%);
+  &:hover {
+    transform: scale(1.1) translateX(10%);
+  }
 }
 </style>

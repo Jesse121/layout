@@ -5,10 +5,6 @@ import store from './store'
 
 import './assets/css/global.css'
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a9dd6279b8cc027e48166388f441f716f3d4cc3c
 //Muse-UI
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'

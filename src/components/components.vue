@@ -148,7 +148,7 @@
 </template>
 <script>
 import museUiList from './list/muse-ui'
-import gjList from './list/gj-ui'
+import gjUiList from './list/gj-ui'
 export default {
   name: "components",
   data() {
@@ -167,11 +167,6 @@ export default {
     removeDom(e) {
       if (e && e.parentElement) e.parentElement.removeChild(e);
     },
-<<<<<<< HEAD
-    components: {
-        ...museUiList,
-        ...gjList
-=======
     dragStart(e) {
       let componentName = e.target.getAttribute("data-name");
       let info = {
@@ -179,7 +174,6 @@ export default {
         ui: this.activeUI
       };
       e.dataTransfer.setData("info", JSON.stringify(info));
->>>>>>> a9dd6279b8cc027e48166388f441f716f3d4cc3c
     }
   },
   computed: {

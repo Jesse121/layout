@@ -129,36 +129,6 @@ export default {
       // this.$refs.preview.fresh()
       this.$refs.preview.rightClick(e);
     },
-<<<<<<< HEAD
-    methods: {
-        switchComponent() {
-            let el = document.getElementById(this.parentComponent.info.id)
-            el.click()
-        },
-        oprate(e) {
-            // let components = await this.$store.dispatch('delComponent', this.current.info.id)
-            // this.$refs.preview.fresh()
-            this.$refs.preview.rightClick(e)
-
-        },
-        openUiDocument() {
-            switch (this.current.info.ui) {
-                case 'Muse-UI':
-                    return window.open('http://www.muse-ui.org/#/' + this.current.info.name.replace(' ', ''))
-                default:
-                    return this.$toast('无文档页')
-            }
-        },
-        setSelectEffect(val) {
-            let head = document.head
-            let style = document.getElementById('vue-layout-style')
-            if (!style) {
-                style = document.createElement('style')
-                style.id = 'vue-layout-style'
-                style.type = 'text/css'
-                head.appendChild(style)
-            }
-=======
     openUiDocument() {
       switch (this.current.info.ui) {
         case "Muse-UI":
@@ -179,7 +149,6 @@ export default {
         style.type = "text/css";
         head.appendChild(style);
       }
->>>>>>> a9dd6279b8cc027e48166388f441f716f3d4cc3c
 
       let cssText;
       if (val) {
